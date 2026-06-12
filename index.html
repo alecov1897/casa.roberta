@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Casa Roberta | Conca dei Marini</title>
+  <meta name="description" content="Casa Roberta è una casa vacanza mediterranea a Conca dei Marini, con terrazza privata vista mare, ideale per coppie e famiglie fino a 4 ospiti." />
+
+  <style>
+    :root {
+      --cream: #f7f1e7;
+      --sand: #dfc7a6;
+      --terracotta: #b36a48;
+      --olive: #69745d;
+      --deep-green: #263c34;
+      --text: #2e2a25;
+      --white: #ffffff;
+      --muted: #746f68;
+      --sea: #0d7196;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 22px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(38, 60, 52, 0.58);
+      backdrop-filter: blur(10px);
+      color: var(--white);
+    }
+
+    .logo {
+      font-size: 26px;
+      letter-spacing: 0.06em;
+      font-weight: 500;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-links a {
+      opacity: 0.92;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      border-bottom: 1px solid currentColor;
+    }
+
+    .hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(20, 31, 27, 0.18), rgba(20, 31, 27, 0.42)),
+        url("images/hero-casa-roberta.jpg");
+      background-size: cover;
+      background-position: center;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 7% 80px;
+    }
+
+    .hero-content {
+      max-width: 930px;
+      text-shadow: 0 3px 22px rgba(0, 0, 0, 0.35);
+    }
+
+    .eyebrow {
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(54px, 9vw, 118px);
+      line-height: 0.92;
+      font-weight: 400;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      font-size: clamp(20px, 2.2vw, 30px);
+      max-width: 760px;
+      margin: 0 auto 36px;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 180px;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: 0.25s ease;
+      border: 1px solid transparent;
+      text-shadow: none;
+    }
+
+    .btn-primary {
+      background: var(--terracotta);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: #96563a;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      color: var(--white);
+      border-color: rgba(255,255,255,0.75);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.15);
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 95px 7%;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.2fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .section-label {
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 12px;
+      color: var(--terracotta);
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-size: clamp(38px, 5vw, 70px);
+      line-height: 1;
+      font-weight: 400;
+      color: var(--deep-green);
+      margin-bottom: 26px;
+    }
+
+    h3 {
+      color: var(--deep-green);
+      font-size: 24px;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+
+    .lead {
+      font-size: 22px;
+      color: #3b352e;
+      margin-bottom: 24px;
+    }
+
+    .text-muted {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .stats {
+      margin-top: -55px;
+      position: relative;
+      z-index: 5;
+      padding: 0 7%;
+    }
+
+    .stats-inner {
+      background: var(--white);
+      border-radius: 28px;
+      box-shadow: 0 22px 65px rgba(38, 60, 52, 0.12);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      overflow: hidden;
+    }
+
+    .stat {
+      padding: 34px 20px;
+      text-align: center;
+      border-right: 1px solid #eee4d6;
+    }
+
+    .stat:last-child {
+      border-right: 0;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 34px;
+      color: var(--deep-green);
+      font-weight: 400;
+      margin-bottom: 4px;
+    }
+
+    .stat span {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .feature-card {
+      background: var(--white);
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: 0 14px 44px rgba(38, 60, 52, 0.08);
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 22px;
+    }
+
+    .image-pair {
+      margin-top: 42px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+    }
+
+    .image-pair img {
+      height: 430px;
+      object-fit: cover;
+      border-radius: 30px;
+      box-shadow: 0 16px 42px rgba(38, 60, 52, 0.10);
+    }
+
+    .image-pair img:nth-child(2) {
+      height: 360px;
+      margin-top: 70px;
+    }
+
+    .accommodation {
+      background: #efe1cf;
+    }
+
+    .rooms {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 42px;
+    }
+
+    .room-card {
+      background: var(--cream);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 12px 36px rgba(38, 60, 52, 0.08);
+    }
+
+    .room-card img {
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .room-card div {
+      padding: 28px;
+    }
+
+    .amenities {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 36px;
+    }
+
+    .amenity {
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(105, 116, 93, 0.18);
+      border-radius: 18px;
+      padding: 18px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+    }
+
+    .gallery-wrap {
+      background: var(--deep-green);
+      color: var(--white);
+    }
+
+    .gallery-wrap h2 {
+      color: var(--white);
+    }
+
+    .gallery-wrap .section-label {
+      color: var(--sand);
+    }
+
+    .gallery {
+      margin-top: 42px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr;
+      grid-auto-rows: 260px;
+      gap: 18px;
+    }
+
+    .gallery img {
+      height: 100%;
+      object-fit: cover;
+      border-radius: 26px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .gallery img:hover {
+      transform: translateY(-4px);
+      opacity: 0.95;
+    }
+
+    .gallery img:first-child {
+      grid-row: span 2;
+    }
+
+    .gallery img:nth-child(6) {
+      grid-column: span 2;
+    }
+
+    .location {
+      background:
+        linear-gradient(rgba(247, 241, 231, 0.94), rgba(247, 241, 231, 0.94)),
+        url("images/garden-path.png");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .location-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .location-item {
+      display: flex;
+      gap: 18px;
+      align-items: baseline;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(38, 60, 52, 0.15);
+    }
+
+    .location-item strong {
+      min-width: 90px;
+      color: var(--terracotta);
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    .note {
+      margin-top: 28px;
+      padding: 26px;
+      background: #fff8ef;
+      border-left: 4px solid var(--terracotta);
+      border-radius: 18px;
+      color: #51483e;
+    }
+
+    .booking {
+      background:
+        linear-gradient(rgba(38, 60, 52, 0.80), rgba(38, 60, 52, 0.82)),
+        url("images/sunset-view.png");
+      background-size: cover;
+      background-position: center;
+      color: var(--white);
+      text-align: center;
+    }
+
+    .booking h2 {
+      color: var(--white);
+      max-width: 850px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .booking p {
+      max-width: 720px;
+      margin: 0 auto 32px;
+      font-size: 20px;
+    }
+
+    .contact-card {
+      max-width: 760px;
+      margin: 42px auto 0;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 28px;
+      padding: 34px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .contact-card p {
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background: #1d2c27;
+      color: var(--white);
+      padding: 36px 7%;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+    }
+
+    footer a {
+      border-bottom: 1px solid rgba(255,255,255,0.45);
+    }
+
+    @media (max-width: 980px) {
+      .topbar {
+        position: absolute;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+      }
+
+      .section-grid,
+      .rooms,
+      .amenities,
+      .gallery,
+      .image-pair {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-inner {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery {
+        grid-auto-rows: auto;
+      }
+
+      .gallery img,
+      .gallery img:first-child,
+      .gallery img:nth-child(6) {
+        height: 280px;
+        grid-row: auto;
+        grid-column: auto;
+      }
+
+      .image-pair img,
+      .image-pair img:nth-child(2) {
+        height: 300px;
+        margin-top: 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      section {
+        padding: 70px 6%;
+      }
+
+      .hero {
+        min-height: 92vh;
+      }
+
+      .stats-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .stat {
+        border-right: 0;
+        border-bottom: 1px solid #eee4d6;
+      }
+
+      .stat:last-child {
+        border-bottom: 0;
+      }
+
+      .button-row {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <a class="logo" href="#home">Casa Roberta</a>
+    <nav class="nav-links">
+      <a href="#chi-siamo">Chi siamo</a>
+      <a href="#alloggio">Alloggio</a>
+      <a href="#galleria">Galleria</a>
+      <a href="#posizione">Posizione</a>
+      <a href="#prenota">Prenota</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="eyebrow">Conca dei Marini · Costiera Amalfitana</div>
+        <h1>Casa Roberta</h1>
+        <p>Un rifugio mediterraneo con terrazza privata vista mare, sospeso tra la quiete di Conca dei Marini e l’azzurro della Costiera Amalfitana.</p>
+        <div class="button-row">
+          <a class="btn btn-primary" href="https://www.airbnb.com/rooms/1665795919849900690?source_impression_id=p3_1781250540_P32_vrY8To2NDxOI" target="_blank" rel="noopener">Prenota su Airbnb</a>
+          <a class="btn btn-secondary" href="#chi-siamo">Scopri la casa</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="stats">
+      <div class="stats-inner">
+        <div class="stat">
+          <strong>5.0</strong>
+          <span>Valutazione Airbnb</span>
+        </div>
+        <div class="stat">
+          <strong>4</strong>
+          <span>Ospiti max</span>
+        </div>
+        <div class="stat">
+          <strong>1</strong>
+          <span>Camera matrimoniale</span>
+        </div>
+        <div class="stat">
+          <strong>1</strong>
+          <span>Terrazza vista mare</span>
+        </div>
+      </div>
+    </div>
+
+    <section id="chi-siamo">
+      <div class="section-grid">
+        <div>
+          <div class="section-label">Benvenuti</div>
+          <h2>Una casa di famiglia, nata dall’amore per Conca.</h2>
+        </div>
+        <div>
+          <p class="lead">
+            Disegnata negli anni Sessanta in stile mediterraneo, Casa Roberta si trova all’interno del Residence San Pancrazio ed è pensata per accogliere coppie e famiglie con bambini.
+          </p>
+          <p class="text-muted">
+            La casa porta con sé una storia familiare speciale: i nonni del proprietario arrivarono a Conca dei Marini durante il loro viaggio di nozze e si innamorarono immediatamente di questo luogo. Oggi Casa Roberta viene condivisa con gli ospiti per offrire la stessa atmosfera autentica, semplice e luminosa.
+          </p>
+
+          <div class="feature-list" style="margin-top: 34px;">
+            <div class="feature-card">
+              <h3>Terrazza privata vista mare</h3>
+              <p class="text-muted">Uno spazio esterno arredato con tavolo, sedie e lettini, con vista da Capo di Conca alla Baia di Salerno.</p>
+            </div>
+            <div class="feature-card">
+              <h3>Quiet location</h3>
+              <p class="text-muted">La residenza è immersa nel verde e in una zona tranquilla, ideale per chi cerca silenzio, natura e passeggiate panoramiche.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="image-pair">
+        <img src="images/arch-sea-view.jpeg" alt="Vista mare attraverso l'arco di Casa Roberta">
+        <img src="images/arch-gate-sea.png" alt="Ingresso panoramico con vista mare">
+      </div>
+    </section>
+
+    <section class="accommodation" id="alloggio">
+      <div class="section-label">L’alloggio</div>
+      <h2>Spazi semplici, luminosi e funzionali.</h2>
+      <p class="lead" style="max-width: 900px;">
+        Casa Roberta ospita fino a 4 persone e dispone di una camera matrimoniale, zona living con divano letto, angolo cottura attrezzato, bagno con doccia e una seconda doccia esterna.
+      </p>
+
+      <div class="rooms">
+        <article class="room-card">
+          <img src="images/bedroom-wide.png" alt="Camera matrimoniale di Casa Roberta">
+          <div>
+            <h3>Camera matrimoniale</h3>
+            <p class="text-muted">Una camera accogliente con letto matrimoniale, armadiature e dettagli mediterranei.</p>
+          </div>
+        </article>
+
+        <article class="room-card">
+          <img src="images/living-room.png" alt="Soggiorno con divano letto e accesso alla terrazza">
+          <div>
+            <h3>Soggiorno</h3>
+            <p class="text-muted">Living con divano letto, poltrone in vimini e accesso diretto alla terrazza vista mare.</p>
+          </div>
+        </article>
+
+        <article class="room-card">
+          <img src="images/terrace-breakfast.png" alt="Terrazza privata vista mare">
+          <div>
+            <h3>Terrazza vista mare</h3>
+            <p class="text-muted">Il cuore della casa: uno spazio privato per colazioni al sole, aperitivi al tramonto e momenti di quiete.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="amenities">
+        <div class="amenity">Cucina attrezzata</div>
+        <div class="amenity">Wi‑Fi</div>
+        <div class="amenity">TV</div>
+        <div class="amenity">Lavatrice</div>
+        <div class="amenity">Aria condizionata</div>
+        <div class="amenity">Bagno con doccia</div>
+        <div class="amenity">Doccia esterna</div>
+        <div class="amenity">Terrazza privata</div>
+      </div>
+    </section>
+
+    <section class="gallery-wrap" id="galleria">
+      <div class="section-label">Galleria</div>
+      <h2>Scorci di Casa Roberta.</h2>
+      <p style="max-width: 760px; font-size: 19px;">
+        La terrazza, gli interni e i passaggi panoramici raccontano lo stile mediterraneo della casa e la vista aperta sul mare della Costiera Amalfitana.
+      </p>
+
+      <div class="gallery">
+        <img src="images/terrace-sea-view.jpg" alt="Terrazza con vista mare">
+        <img src="images/terrace-window-sea.png" alt="Finestra panoramica sul mare">
+        <img src="images/kitchen-wide.png" alt="Cucina attrezzata">
+        <img src="images/veranda-sofa.png" alt="Veranda interna con divanetto">
+        <img src="images/bathroom-shower.png" alt="Bagno con doccia">
+        <img src="images/coast-view.png" alt="Vista sulla costa e sul mare">
+        <img src="images/bedroom-close.png" alt="Dettaglio della camera matrimoniale">
+        <img src="images/garden-path.png" alt="Sentiero immerso nel verde">
+      </div>
+    </section>
+
+    <section class="location" id="posizione">
+      <div class="section-grid">
+        <div>
+          <div class="section-label">Posizione</div>
+          <h2>Conca dei Marini, tra Amalfi e Positano.</h2>
+        </div>
+        <div>
+          <p class="lead">
+            La casa si trova nel Residence San Pancrazio, in una zona verde e silenziosa di Conca dei Marini, lontana dalle mete più affollate ma vicina al mare e ai luoghi iconici della Costiera.
+          </p>
+
+          <div class="location-list">
+            <div class="location-item">
+              <strong>300</strong>
+              <span>circa i gradini dell’antico sentiero pedonale che scende verso il vecchio villaggio di pescatori e le spiagge.</span>
+            </div>
+            <div class="location-item">
+              <strong>800 m</strong>
+              <span>dal supermercato più vicino, raggiungibile in auto o a piedi salendo le scale in circa 15 minuti.</span>
+            </div>
+            <div class="location-item">
+              <strong>Quiet</strong>
+              <span>una posizione immersa nel verde, adatta a chi desidera tranquillità, passeggiate e viste panoramiche.</span>
+            </div>
+          </div>
+
+          <div class="note">
+            La casa non è adatta a persone con ridotta mobilità, poiché è raggiungibile solo tramite scale.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="booking" id="prenota">
+      <div class="section-label">Disponibilità</div>
+      <h2>Prenota il tuo soggiorno a Casa Roberta.</h2>
+      <p>
+        Verifica le date disponibili, consulta i prezzi aggiornati e completa la prenotazione direttamente tramite Airbnb.
+      </p>
+      <div class="button-row">
+        <a class="btn btn-primary" href="https://www.airbnb.com/rooms/1665795919849900690?source_impression_id=p3_1781250540_P32_vrY8To2NDxOI" target="_blank" rel="noopener">Vai ad Airbnb</a>
+        <a class="btn btn-secondary" href="mailto:tuaemail@example.com">Scrivici</a>
+      </div>
+
+      <div class="contact-card">
+        <p><strong>Casa Roberta</strong></p>
+        <p>Conca dei Marini, Costiera Amalfitana</p>
+        <p>Email: tuaemail@example.com · Telefono: +39 000 000 0000</p>
+        <p>CIR / Registration details: IT065044C2BMADNKDU</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 Casa Roberta. Tutti i diritti riservati.</span>
+    <span><a href="#home">Torna su</a></span>
+  </footer>
+
+</body>
+</html>
